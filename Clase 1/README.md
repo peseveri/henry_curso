@@ -6,6 +6,7 @@ Este proyecto simula un sistema básico de gestión de usuarios en Python, inter
 
 - Registrar usuarios (nombre, email, contraseña)
 - Validación de contraseña: debe contener al menos una letra mayúscula y un número
+- Contraseñas hasheadas con `hashlib`
 - Uso de manejo de errores con try/except
 - Listar usuarios
 - Buscar usuarios por nombre (búsqueda exacta)
@@ -54,7 +55,8 @@ Crear y activar entorno virtual:
 python -m venv venv  
 
 En Windows:  
-.\venv\Scripts\activate  
+
+"Clase 1\venv\Scripts\activate.bat"
 
 En Linux/macOS:  
 source venv/bin/activate  
@@ -70,6 +72,8 @@ USER_FILE=users.json
 ## ▶️ Ejecución
 
 Ejecutar la aplicación:
+
+cd "Clase 1"
 
 python main.py
 

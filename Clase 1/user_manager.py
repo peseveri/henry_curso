@@ -1,6 +1,11 @@
+import hashlib
 from colorama import Fore, Style, init
 
 init(autoreset=True)
+
+
+def hash_password_sha256(password):
+    return hashlib.sha256(password.encode('utf-8')).hexdigest()
 
 def register_user(users, name, email, password):
     try:
@@ -8,7 +13,10 @@ def register_user(users, name, email, password):
             if user['email'] == email:
                 print(Fore.RED + "❌ Ya existe un usuario con ese email.")
                 return users
-        users.append({'name': name, 'email': email, 'password': password})
+ 
+        hashed_password = hash_password_sha256(password)
+
+        users.append({'name': name, 'email': email, 'password': hashed_password})
         print(Fore.GREEN + "✅ Usuario registrado con éxito.")
         return users
     except Exception as e:
